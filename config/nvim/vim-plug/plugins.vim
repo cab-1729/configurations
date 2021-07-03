@@ -1,4 +1,4 @@
-call plug#begin('~/usr/share/nvim/runtime/autoload/plugged')
+call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	"Bracket colorizer
 	Plug 'frazrepo/vim-rainbow'
 	"Better status bar
