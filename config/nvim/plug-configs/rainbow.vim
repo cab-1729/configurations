@@ -1,2 +1,1 @@
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-let g:rainbow_activate=1
+let g:rainbow_active=1
