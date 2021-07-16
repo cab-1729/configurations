@@ -11,80 +11,53 @@ class yank(Command):#yanks text to clipboard
     def execute(self):
         selected=self.fm.thistab.get_selection()#items selected
         option1=self.args[1]
-        if selected:
-            string=''
-            if option1=='name':
-                for f in selected:
-                    string+='\"'+{f.basename}+'\" '
-            elif option1=='name_without_extension':
-                for f in selected:
-                    string+='\"'+f.basename[:f.basename.rindex('.')]+'\" '
-            #linux yanks
-            elif option1=='linux':
-                option2=self.args[2]
-                if option2=='path':
-                    for f in selected:
-                        string+='\"'+f.path+'\" '
-                elif option2=='cwd':
-                    string=self.fm.thisdir.path
-            #windows yanks
-            elif option1=='windows':#windows yanks
-                option2=self.args[2]
-                if option2=='path':
-                    for f in selected:
-                        converted=linux2windows(f.path)
-                        if converted:
-                            string+='\"'+converted+'\" '
-                elif option2=='cwd':
-                    converted=linux2windows(self.fm.thisdir.path)
-                    if converted:
-                        string=converted
-                    else:
-                        self.fm.notify('Cannot converted path to windows',bad=True)
-            copy(string)
-        else:
-            under=self.fm.thisfile#item under cursor
-            #neutral yanks
-            if option1=='content':#content to clipboard
-                if under.is_directory:
-                    copy('\n'.join(listdir(under.path)))
+        string=''
+        #neutral yanks
+        if option1=='name':
+            for f in selected:
+                string+='\"'+{f.basename}+'\" '
+        elif option1=='content':
+            for f in selected:
+                if f.is_directory:
+                    string+='\n'.join(listdir(f.path))
                 else:
-                    with open(under.path,'r') as file:copy(file.read())
-            elif option1=='name':
-                copy(under.basename)
-            elif option1=='name_without_extension':
-                copy(under.basename[:under.basename.rindex('.')])
-            #linux yanks
-            elif option1=='linux':
-                option2=self.args[2]
-                if option2=='path':copy(under.path)
-                elif option2=='cwd':copy(self.fm.thisdir.path)
-            #windows yanks
-            elif option1=='windows':#windows yanks
-                option2=self.args[2]
-                if option2=='path':
-                    converted=linux2windows(under.path)
+                    with open(f.path,'r') as f:
+                        string+=f.read()+'\n'
+        elif option1=='name_without_extension':
+            for f in selected:
+                string+='\"'+f.basename[:f.basename.rindex('.')]+'\" '
+        #linux yanks
+        elif option1=='linux':
+            option2=self.args[2]
+            if option2=='path':
+                for f in selected:
+                    string+='\"'+f.path+'\" '
+            elif option2=='cwd':
+                string=self.fm.thisdir.path
+        #windows yanks
+        elif option1=='windows':#windows yanks
+            option2=self.args[2]
+            if option2=='path':
+                for f in selected:
+                    converted=linux2windows(f.path)
                     if converted:
-                        copy(converted)
-                    else:
-                        self.fm.notify('Cannot converted path to windows',bad=True)
-                elif option2=='cwd':
-                    converted=linux2windows(self.fm.thisdir.path)
-                    if converted:
-                        copy(converted)
-                    else:
-                        self.fm.notify('Cannot converted path to windows',bad=True)
+                        string+='\"'+converted+'\" '
+            elif option2=='cwd':
+                converted=linux2windows(self.fm.thisdir.path)
+                if converted:
+                    string=converted
+                else:
+                    self.fm.notify('Cannot converted path to windows',bad=True)
+        copy(string)
 class trash(Command):#sends stuff to windows recycle bin
     def execute(self):
         selected=self.fm.thistab.get_selection()
-        if selected:#if selected trash items selected
-            names=[i.basename for i in selected]
-            Popen(['recycle.exe',*names])
-            self.fm.notify(f'Sent {",".join(names)} to Recycle Bin')
-        else:#trash items under cursor
-            name=self.fm.thisfile.basename
-            Popen(['recycle.exe',name])
-            self.fm.notify(f'Sent {name} to Recycle Bin')
+        names=[i.basename for i in selected]
+        Popen(['recycle.exe',*names])
+        self.fm.notify(f'Sent {",".join(names)} to Recycle Bin')
 class unzip(Command):#unzip zip files
     def execute(self):
-        Popen(['unzip','-qq',self.fm.thisfile.basename])
+        if self.fm.thisfile.basename.endswith('.zip'):
+            Popen(['unzip','-qq',self.fm.thisfile.basename])
+        else:
+            self.fm.notify('Not a zip file',bad=True)
