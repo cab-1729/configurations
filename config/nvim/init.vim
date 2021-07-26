@@ -4,6 +4,8 @@ set termguicolors
 colorscheme gruvbox
 	"god knows what this does
 set nocompatible
+	"faster macro execution
+set lazyredraw
 	"indent settings
 set tabstop=4
 set shiftwidth=4
@@ -16,6 +18,7 @@ filetype plugin on
 "plugins
 source $HOME/.config/nvim/vim-plug/plugins.vim
 source $HOME/.config/nvim/plug-configs/python.vim
+source $HOME/.config/nvim/plug-configs/voom.vim
 source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/rainbow.vim
 "remaps

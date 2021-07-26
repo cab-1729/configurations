@@ -20,4 +20,6 @@ call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	Plug 'sheerun/vim-polyglot'
 	"better highlighting for java
 	Plug 'uiiaoo/java-syntax.vim'
+	"latex structure
+	Plug 'vim-voom/VOoM'
 call plug#end()

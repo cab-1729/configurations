@@ -15,7 +15,7 @@ class yank(Command):#yanks text to clipboard
         #neutral yanks
         if option1=='name':
             for f in selected:
-                string+='\"'+{f.basename}+'\" '
+                string+='\"'+f.basename+'\" '
         elif option1=='content':
             for f in selected:
                 if f.is_directory:
