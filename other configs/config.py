@@ -142,6 +142,7 @@ config.set('content.javascript.enabled', True, 'chrome://*/*')
 config.set('content.javascript.enabled', True, 'qute://*/*')
 #mychanges
 config.set('colors.webpage.darkmode.enabled',True)#dark mode
+config.confirm_quit=['downloads']#ask from quit confirmation if downloading
 c.url.searchengines={
-    'DEFAULT':'www.google.com/search?hl=en&q={}'
+        'DEFAULT': 'https://google.com/search?hl=en&q={}',
 }
