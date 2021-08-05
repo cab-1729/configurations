@@ -7,4 +7,4 @@ set nofoldenable
 "default spellchecking
 set spell!
 "better scheme
-colorscheme Chasing_Logic
+colorscheme elflord
