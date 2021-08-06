@@ -1,7 +1,15 @@
+"plugins
+source $HOME/.config/nvim/vim-plug/plugins.vim
+source $HOME/.config/nvim/plug-configs/python.vim
+source $HOME/.config/nvim/plug-configs/quickscope.vim
+source $HOME/.config/nvim/plug-configs/quickscope.vim
+source $HOME/.config/nvim/plug-configs/vim-ranger.vim
 "settings
 	"color
 set termguicolors
-colorscheme gruvbox
+command -nargs=1 -complete=color Colo colo <args>|hi Normal guibg=NONE ctermbg=NONE
+command -nargs=1 -complete=color Colorscheme colo <args>|hi Normal guibg=NONE ctermbg=NONE
+colorscheme elflord
 	"god knows what this does
 set nocompatible
 	"faster macro execution
@@ -20,12 +28,8 @@ set sessionoptions+=globals
 set ssop+=options
 	"file specific formatting
 filetype plugin on
-"plugins
-source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/plug-configs/python.vim
-source $HOME/.config/nvim/plug-configs/voom.vim
-source $HOME/.config/nvim/plug-configs/quickscope.vim
-source $HOME/.config/nvim/plug-configs/rainbow.vim
+	"enable transparency
+hi Normal guibg=NONE ctermbg=NONE
 "remaps
 	"Move through QuickFixList
 nnoremap <C-k> :cnext<CR>

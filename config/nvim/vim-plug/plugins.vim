@@ -22,4 +22,6 @@ call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	Plug 'uiiaoo/java-syntax.vim'
 	"bracket like behaviour for more characters
 	Plug 'wellle/targets.vim'
+	"replace netrw with ranger
+	Plug 'Mizuchi/vim-ranger'
 call plug#end()
