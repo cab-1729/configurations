@@ -61,3 +61,12 @@ class unzip(Command):#unzip zip files
             Popen(['unzip','-qq',self.fm.thisfile.basename])
         else:
             self.fm.notify('Not a zip file',bad=True)
+class new(Command):
+    def execute(self):
+        name=self.args[1];
+        if '.' in name:
+            Popen(["touch",name])
+            self.fm.notify(f'Created file {name}')
+        else:
+            Popen(["mkdir",name])
+            self.fm.notify(f'Created directory {name}')

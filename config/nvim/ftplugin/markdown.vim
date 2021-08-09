@@ -6,5 +6,3 @@ set nolist
 set nofoldenable
 "default spellchecking
 set spell!
-"better scheme
-colorscheme elflord
