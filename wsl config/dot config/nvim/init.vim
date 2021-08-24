@@ -6,7 +6,7 @@ source $HOME/.config/nvim/plug-configs/python.vim
 source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/vim-ranger.vim
-luafile $HOME/.config/nvim/lua/nvim-colorizer.lua
+luafile $HOME/.config/nvim/lua/plug-configs/nvim-colorizer.lua
 "settings
 	"color
 command -nargs=1 -complete=color Colo colo <args>|hi Normal guibg=NONE ctermbg=NONE
@@ -60,3 +60,6 @@ nnoremap <Up> :res +1<CR>
 nnoremap <Down> :res -1<CR>
 nnoremap <Left> :vert res -1<CR>
 nnoremap <Right> :vert res +1<CR>
+	"proper End and Home Keys
+inoremap <End> <Esc>A
+inoremap <Home> <Esc>I

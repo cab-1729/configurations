@@ -1,8 +1,1 @@
-"wrap options
-set wrap
-set linebreak
-set nolist
-"no folds
-set nofoldenable
-"default spellchecking
-set spell!
+luafile $HOME/.config/nvim/lua/ftplugin/markdown.lua
