@@ -38,8 +38,8 @@ set ssop+=options
 filetype plugin on
 "remaps
 	"Move through QuickFixList
-nnoremap <C-k> :cnext<CR>
-nnoremap <C-j> :cprev<CR>
+nnoremap <silent> <C-k> :cnext<CR>
+nnoremap <silent> <C-j> :cprev<CR>
 	"quicker switch to term command
 nnoremap ! :!
 	"move out of terminal easily
@@ -54,12 +54,14 @@ nnoremap Y y$
 nnoremap N Nzz
 nnoremap n nzz
 	"toggle numbers, I have no idea what Ex mode is
-nnoremap Q :set invnumber<CR>:set invrelativenumber<CR>
+nnoremap <silent> Q :set invnumber<CR>:set invrelativenumber<CR>
 	"arrow keys to resize current pane
-nnoremap <Up> :res +1<CR>
-nnoremap <Down> :res -1<CR>
-nnoremap <Left> :vert res -1<CR>
-nnoremap <Right> :vert res +1<CR>
+nnoremap <silent> <Up> :res +1<CR>
+nnoremap <silent> <Down> :res -1<CR>
+nnoremap <silent> <Left> :vert res -1<CR>
+nnoremap <silent> <Right> :vert res +1<CR>
 	"proper End and Home Keys
 inoremap <End> <Esc>A
 inoremap <Home> <Esc>I
+	"quit all faster
+nnoremap <silent> ZA :wqa!<CR>
