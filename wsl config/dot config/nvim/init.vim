@@ -7,14 +7,14 @@ source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/vim-ranger.vim
 luafile $HOME/.config/nvim/lua/plug-configs/nvim-colorizer.lua
-"settings
-	"color
+"color
 command -nargs=1 -complete=color Colo colo <args>|hi Normal guibg=NONE ctermbg=NONE
 command -nargs=1 -complete=color Colorscheme colo <args>|hi Normal guibg=NONE ctermbg=NONE
 	"looks nice over and orangish background
 colorscheme elflord
 	"enable transparency
 hi Normal guibg=NONE ctermbg=NONE
+"settings
 	"god knows what this does
 set nocompatible
 	"faster macro execution
@@ -40,7 +40,7 @@ filetype plugin on
 	"Move through QuickFixList
 nnoremap <silent> <C-k> :cnext<CR>
 nnoremap <silent> <C-j> :cprev<CR>
-	"quicker switch to term command
+	"quicker switch to terminal command
 nnoremap ! :!
 	"move out of terminal easily
 tnoremap <C-w> <C-\><C-n><C-w>
@@ -49,10 +49,10 @@ if has('nvim')
 	  tnoremap <expr> <C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 endif
 	"make Y behave like rest of capitals
-nnoremap Y y$
+nnoremap <silent> Y y$
 	"keep centered while searching
-nnoremap N Nzz
-nnoremap n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> n nzz
 	"toggle numbers, I have no idea what Ex mode is
 nnoremap <silent> Q :set invnumber<CR>:set invrelativenumber<CR>
 	"arrow keys to resize current pane
@@ -61,7 +61,12 @@ nnoremap <silent> <Down> :res -1<CR>
 nnoremap <silent> <Left> :vert res -1<CR>
 nnoremap <silent> <Right> :vert res +1<CR>
 	"proper End and Home Keys
-inoremap <End> <Esc>A
-inoremap <Home> <Esc>I
+inoremap <silent> <End> <Esc>A
+inoremap <silent> <Home> <Esc>I
 	"quit all faster
 nnoremap <silent> ZA :wqa!<CR>
+	"remap redundant cc to remove highlight (default cc same functionality as S)
+nnoremap <silent> cc :noh<CR>
+	"uninterrupted indenting
+vnoremap <silent> > >gv
+vnoremap <silent> < <gv
