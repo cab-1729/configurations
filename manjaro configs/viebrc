@@ -1,0 +1,22 @@
+"no timeout for two consecutive keys
+set timeout=false
+"modes and bar at bottom like vim
+colorscheme flipped
+"use google as engine
+set search="https://www.google.com/search?q=%s"
+"fresh tabs in fresh session
+set restoretabs=false
+"no preferences
+set favoritepages= suggesttopsites=0
+"no suggestions in explore mode
+set suggestorder=""
+"noh command
+command! noh <emptySearch>
+"remove redundant c
+nunmap c 
+"cc to remove highlights
+nnoremap cc <emptySearch>
+"switch to specific tab
+nnoremap b <action.toCommandMode>buffer<Space>
+"mark lke functionality
+source bookmarks.vim
