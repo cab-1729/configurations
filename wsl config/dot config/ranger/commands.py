@@ -51,13 +51,17 @@ class yank(Command):#yanks text to clipboard
         copy(string)
 class trash(Command):#sends stuff to windows recycle bin
     def execute(self):
-        selected=self.fm.thistab.get_selection()
-        names=[i.basename for i in selected]
+        names=[i.basename for i in self.fm.thistab.get_selection()]
         Popen(['recycle.exe',*names])
         self.fm.notify(f'Sent {",".join(names)} to Recycle Bin')
 class unzip(Command):#unzip zip files
     def execute(self):
-        if self.fm.thisfile.basename.endswith('.zip'):
-            Popen(['unzip','-qq',self.fm.thisfile.basename])
-        else:
-            self.fm.notify('Not a zip file',bad=True)
+        fails=[]
+        for f in self.fm.thistab.get_selection():
+            name=f.basename
+            if name.endswith('.zip'):
+                Popen(['unzip','-qq',name])
+            else:
+                fails.append(name)
+        if fails:
+            self.fm.notify(f'{",".join(fails)} not a zip files',bad=True)
