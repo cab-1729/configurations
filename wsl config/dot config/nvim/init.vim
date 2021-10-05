@@ -23,7 +23,7 @@ set lazyredraw
 set number
 set relativenumber
 	"store history
-set undodir="/root/.local/share/nvim/undos"
+set undodir="$HOME/.local/share/nvim/undos"
 set undofile
 	"indent settings
 set autoindent
@@ -49,10 +49,10 @@ if has('nvim')
 	  tnoremap <expr> <C-r> '<C-\><C-N>"'.nr2char(getchar()).'pi'
 endif
 	"make Y behave like rest of capitals
-nnoremap <silent> Y y$
+nnoremap Y y$
 	"keep centered while searching
-nnoremap <silent> N Nzz
-nnoremap <silent> n nzz
+nnoremap N Nzz
+nnoremap n nzz
 	"toggle numbers, I have no idea what Ex mode is
 nnoremap <silent> Q :set invnumber<CR>:set invrelativenumber<CR>
 	"arrow keys to resize current pane
@@ -61,12 +61,12 @@ nnoremap <silent> <Down> :res -1<CR>
 nnoremap <silent> <Left> :vert res -1<CR>
 nnoremap <silent> <Right> :vert res +1<CR>
 	"proper End and Home Keys
-inoremap <silent> <End> <Esc>A
-inoremap <silent> <Home> <Esc>I
+inoremap <End> <Esc>A
+inoremap <Home> <Esc>I
 	"quit all faster
 nnoremap <silent> ZA :wqa!<CR>
 	"remap redundant cc to remove highlight (default cc same functionality as S)
 nnoremap <silent> cc :noh<CR>
 	"uninterrupted indenting
-vnoremap <silent> > >gv
-vnoremap <silent> < <gv
+vnoremap > >gv
+vnoremap < <gv
