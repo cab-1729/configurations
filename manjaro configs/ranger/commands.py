@@ -1,6 +1,7 @@
 from xerox import copy
 from subprocess import Popen
 from os import listdir
+from shutil import move
 from send2trash import send2trash
 from ranger.api.commands import Command
 class yank(Command):#yanks text to clipboard
@@ -27,11 +28,21 @@ class yank(Command):#yanks text to clipboard
         elif option=='cwd':
             string=self.fm.thisdir.path
         copy(string)
-class trash(Command):#sends stuff to windows recycle bin
+class trash(Command):
     def execute(self):
         names=[i.basename for i in self.fm.thistab.get_selection()]
-        send2trash(names)
-        self.fm.notify(f'Sent {",".join(names)} to root Trash')
+        if self.fm.thisdir.path.startswith('/mnt/'):
+            notif=""
+            for i in self.fm.thistab.get_selection():
+                oldp=i.basename
+                newp=f'/home/cab1729/.local/share/ranger/{oldp}'
+                move(oldp,newp)
+                send2trash(newp)
+                notif+=f'{oldp}, '
+            self.fm.notify(f'Sent {notif[:-2]} to Trash')
+        else:
+            send2trash(names:=[i.basename for i in self.fm.thistab.get_selection()])
+            self.fm.notify(f'Sent {",".join(names)} to Trash')
 class unzip(Command):#unzip zip files
     def execute(self):
         fails=[]
