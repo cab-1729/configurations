@@ -12,7 +12,7 @@ window:
   decorations: none
   opacity: 0.0
   startup_mode: Maximized
-  title: Alacritty
+  title: Terminal
   dynamic_title: false
   class:
     instance: Terminal
@@ -138,9 +138,7 @@ cursor:
   thickness: 0.1
 live_config_reload: true
 shell:
-  program: /bin/bash
-  args:
-    - --login
+  program: /home/cab1729/.config/alacritty/terminal_startup.sh
 working_directory: None
 mouse:
   hide_when_typing: true
