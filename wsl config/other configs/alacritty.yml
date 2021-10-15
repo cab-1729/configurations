@@ -128,6 +128,8 @@ cursor:
 live_config_reload: true
 shell:
   program: wsl.exe
+  args:
+    - /mnt/c/Users/USER/AppData/Roaming/alacritty/terminal_startup.sh
 working_directory: 'C:\Users\User\Desktop'
 mouse:
   hide_when_typing: true
