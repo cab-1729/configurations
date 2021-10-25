@@ -11,7 +11,7 @@ luafile $HOME/.config/nvim/lua/plug-configs/nvim-colorizer.lua
 command -nargs=1 -complete=color Colo colo <args>|hi Normal guibg=NONE ctermbg=NONE
 command -nargs=1 -complete=color Colorscheme colo <args>|hi Normal guibg=NONE ctermbg=NONE
 	"looks nice over and orangish background
-colorscheme elflord
+colorscheme gruvbox
 	"enable transparency
 hi Normal guibg=NONE ctermbg=NONE
 "settings
