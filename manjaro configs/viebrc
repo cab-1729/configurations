@@ -18,5 +18,7 @@ nunmap c
 nnoremap cc <emptySearch>
 "switch to specific tab
 nnoremap b <action.toCommandMode>buffer<Space>
-"mark lke functionality
+"mark like functionality
 source bookmarks.vim
+"view pdf, overcome electron bug, compromise : changes clipboard
+nmap V <action.pageToClipboard><action.toCommandMode>!curl -s $(xclip -o -sel -clip) | zathura -<action.useEnteredData><:close>
