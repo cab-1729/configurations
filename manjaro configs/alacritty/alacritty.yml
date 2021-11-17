@@ -10,7 +10,7 @@ window:
     y: 0
   dynamic_padding: false
   decorations: none
-  opacity: 0.0
+  opacity: 0.3
   startup_mode: Maximized
   title: Terminal
   dynamic_title: false
