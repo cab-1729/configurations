@@ -1,9 +1,11 @@
 from xerox import copy
 from subprocess import Popen
 from os import listdir
+from os.path import exists
 from shutil import move
-from send2trash import send2trash
+from urllib.parse import quote
 from ranger.api.commands import Command
+from datetime import datetime
 class yank(Command):#yanks text to clipboard
     def execute(self):
         selected=self.fm.thistab.get_selection()#items selected
@@ -30,19 +32,27 @@ class yank(Command):#yanks text to clipboard
         copy(string)
 class trash(Command):
     def execute(self):
-        names=[i.basename for i in self.fm.thistab.get_selection()]
-        if self.fm.thisdir.path.startswith('/mnt/'):
-            notif=""
-            for i in self.fm.thistab.get_selection():
-                oldp=i.basename
-                newp=f'/home/cab1729/.local/share/ranger/{oldp}'
-                move(oldp,newp)
-                send2trash(newp)
-                notif+=f'{oldp}, '
-            self.fm.notify(f'Sent {notif[:-2]} to Trash')
-        else:
-            send2trash(names:=[i.basename for i in self.fm.thistab.get_selection()])
-            self.fm.notify(f'Sent {",".join(names)} to Trash')
+        notif=''
+        for i in self.fm.thistab.get_selection():
+            new_name=i.basename
+            try:
+                dot_index=new_name.rindex('.')
+            except ValueError:#no '.' in name
+                dot_index=len(new_name)
+            new_path=f'/home/cab1729/.local/share/Trash/files/{new_name}'
+            n=2
+            while exists(new_path):
+                new_name=f'{i.basename[:dot_index]}.{n}{i.basename[dot_index:]}'
+                new_path=f'/home/cab1729/.local/share/Trash/files/{new_name}'
+                n+=1
+            with open(f'/home/cab1729/.local/share/Trash/info/{new_name}.trashinfo','w') as trashinfo:
+                trashinfo.write(f'''[Trash Info]
+Path={quote(i.path)}
+DeletionDate={datetime.now().strftime("%Y-%m-%dT%H:%M:%S")}
+''')
+            move(i.basename,new_path)
+            notif+=f'{i.basename}, '
+        self.fm.notify(f'Sent {notif[:-2]} to Trash')
 class unzip(Command):#unzip zip files
     def execute(self):
         fails=[]
