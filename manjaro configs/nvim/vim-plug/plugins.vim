@@ -24,4 +24,8 @@ call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	Plug 'wellle/targets.vim'
 	"replace netrw with ranger
 	Plug 'Mizuchi/vim-ranger'
+	"Ease of commenting
+	Plug 'numToStr/Comment.nvim'
+	"icons
+	Plug 'ryanoasis/vim-devicons'
 call plug#end()

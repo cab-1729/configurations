@@ -7,6 +7,7 @@ source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/quickscope.vim
 source $HOME/.config/nvim/plug-configs/vim-ranger.vim
 luafile $HOME/.config/nvim/lua/plug-configs/nvim-colorizer.lua
+luafile $HOME/.config/nvim/lua/plug-configs/comment.lua
 "color
 command -nargs=1 -complete=color Colo colo <args>|hi Normal guibg=NONE ctermbg=NONE
 command -nargs=1 -complete=color Colorscheme colo <args>|hi Normal guibg=NONE ctermbg=NONE
@@ -22,7 +23,7 @@ set lazyredraw
 set number
 set relativenumber
 	"store history
-set undodir="/root/.local/share/nvim/undos"
+set undodir="~/.local/share/nvim/undos"
 set undofile
 	"indent settings
 set autoindent
