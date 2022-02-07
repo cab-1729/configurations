@@ -5,5 +5,5 @@ set nonu
 set nornu
 set nofoldenable
 set spell
-colo emacs
 ColorizerToggle
+autocmd BufNewFile *.md silent! 0r $HOME/Templates/Markdown/Notes.md

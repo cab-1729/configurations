@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="true"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=8;x=683;y=754"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="icon-size" type="uint" value="27"/>
+      <property name="size" type="uint" value="34"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="3"/>
+        <value type="int" value="1"/>
+        <value type="int" value="5"/>
+        <value type="int" value="8"/>
+        <value type="int" value="2"/>
+        <value type="int" value="12"/>
+      </property>
+      <property name="mode" type="uint" value="0"/>
+      <property name="autohide-behavior" type="uint" value="2"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+      <property name="expand" type="bool" value="true"/>
+    </property>
+    <property name="plugin-8" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="show-notifications" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance11533;chromium.instance12170;chromium.instance12444;chromium.instance12480;chromium.instance12719;chromium.instance130208;chromium.instance1315;chromium.instance13751;chromium.instance14151;chromium.instance14324;chromium.instance14493;chromium.instance1573;chromium.instance18658;chromium.instance18720;chromium.instance19013;chromium.instance19366;chromium.instance2103;chromium.instance27050;chromium.instance2992;chromium.instance30551;chromium.instance30877;chromium.instance4019;chromium.instance4252;chromium.instance44369;chromium.instance45164;chromium.instance5234;chromium.instance5856;chromium.instance6001;chromium.instance6413;chromium.instance65418;chromium.instance6665;chromium.instance7813;chromium.instance7903;firefox.instance12963;vlc;vlc.instance11410;vlc.instance115892;vlc.instance116957;vlc.instance131661;vlc.instance15875;vlc.instance18090;vlc.instance19148;vlc.instance1929;vlc.instance19301;vlc.instance19774;vlc.instance20588;vlc.instance23392;vlc.instance25193;vlc.instance25344;vlc.instance26377;vlc.instance31043;vlc.instance35980;vlc.instance36447;vlc.instance7135"/>
+    </property>
+    <property name="plugin-12" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+    </property>
+    <property name="plugin-3" type="string" value="whiskermenu"/>
+    <property name="plugin-2" type="string" value="systray">
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="clipman"/>
+        <value type="string" value="networkmanager applet"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="vlc"/>
+      </property>
+    </property>
+    <property name="plugin-1" type="string" value="tasklist">
+      <property name="show-handle" type="bool" value="false"/>
+      <property name="show-labels" type="bool" value="false"/>
+      <property name="grouping" type="uint" value="1"/>
+      <property name="sort-order" type="uint" value="0"/>
+      <property name="include-all-monitors" type="bool" value="false"/>
+      <property name="window-scrolling" type="bool" value="false"/>
+    </property>
+  </property>
+</channel>

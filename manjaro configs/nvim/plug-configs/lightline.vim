@@ -1,1 +1,1 @@
-let g:lightline={'colorscheme':'molokai',}
+let g:lightline={'colorscheme':'solarized',}

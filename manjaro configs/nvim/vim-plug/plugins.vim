@@ -7,9 +7,9 @@ call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	Plug 'norcalli/nvim-colorizer.lua'
 	"quicker horizontal movement highlight
 	Plug 'unblevable/quick-scope'
-	"markdown highlight
+	"markdown highlight and features
 	Plug 'godlygeek/tabular'
-	Plug 'plasticboy/vim-markdown'
+	Plug 'preservim/vim-markdown'
 	"surround plugin
 	Plug 'tpope/vim-surround'
 	"better python highlighting
@@ -28,4 +28,6 @@ call plug#begin('/usr/share/nvim/runtime/autoload/plugged')
 	Plug 'numToStr/Comment.nvim'
 	"icons
 	Plug 'ryanoasis/vim-devicons'
+	"edit protected files
+	Plug 'lambdalisue/suda.vim'
 call plug#end()
