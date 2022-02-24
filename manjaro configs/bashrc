@@ -40,4 +40,5 @@ alias grep='grep --colour=auto'
 alias egrep='egrep --colour=auto'
 alias fgrep='fgrep --colour=auto'
 alias cls="clear && tmux clear-history"
+alias pandoc="pandoc --verbose"
 stty -ixon #Disable crtl-s and crtl-q for pausing
